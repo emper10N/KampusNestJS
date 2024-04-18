@@ -1,43 +1,74 @@
-import { Column, DataType, Model, Table } from 'sequelize-typescript';
+import {
+  AllowNull,
+  AutoIncrement,
+  Column,
+  DataType,
+  Model,
+  Table,
+} from 'sequelize-typescript';
 import { IPractice } from 'src/types/types';
 
-export interface IH {
-  email: string;
-  password: string;
-}
-
 @Table({ tableName: 'practice' })
-export class Practice extends Model<Practice, IH> {
+export class Practice extends Model<Practice, IPractice> {
   @Column({
     type: DataType.INTEGER,
-    unique: true,
-    autoIncrement: true,
     primaryKey: true,
+    autoIncrement: true,
+    unique: true,
   })
   id: number;
 
   @Column({
-    type: DataType.INTEGER,
-    unique: true,
+    type: DataType.STRING,
     allowNull: false,
   })
-  email: string;
+  role: string;
 
   @Column({
-    type: DataType.INTEGER,
+    type: DataType.STRING,
     allowNull: false,
   })
-  password: string;
+  company: string;
 
   @Column({
-    type: DataType.INTEGER,
-    defaultValue: false,
+    type: DataType.STRING,
+    allowNull: false,
   })
-  bannedL: boolean;
+  title: string;
 
   @Column({
-    type: DataType.INTEGER,
+    type: DataType.DATE,
     allowNull: true,
   })
-  banReason: string;
+  internshipBeginning?: Date | string | undefined;
+
+  @Column({
+    type: DataType.DATE,
+    allowNull: true,
+  })
+  internshipEnding?: Date | string | undefined;
+
+  @Column({
+    type: DataType.BOOLEAN,
+    allowNull: true,
+  })
+  isActive?: boolean;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+  })
+  description: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: true,
+  })
+  testTask?: string | URL | undefined;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+  })
+  employerHref: string;
 }

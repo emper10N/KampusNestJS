@@ -1,43 +1,49 @@
 import { Column, DataType, Model, Table } from 'sequelize-typescript';
 import { IReview } from 'src/types/types';
 
-export interface IH {
-  email: string;
-  password: string;
-}
-
 @Table({ tableName: 'review' })
-export class Review extends Model<Review, IH> {
+export class Review extends Model<Review, IReview> {
   @Column({
     type: DataType.INTEGER,
-    unique: true,
-    autoIncrement: true,
     primaryKey: true,
+    autoIncrement: true,
+    unique: true,
   })
   id: number;
 
   @Column({
-    type: DataType.INTEGER,
-    unique: true,
+    type: DataType.STRING,
     allowNull: false,
   })
-  email: string;
+  name: string;
 
   @Column({
     type: DataType.INTEGER,
     allowNull: false,
   })
-  password: string;
+  age: number;
 
   @Column({
     type: DataType.INTEGER,
-    defaultValue: false,
+    allowNull: false,
   })
-  bannedL: boolean;
+  practice_id: number;
 
   @Column({
-    type: DataType.INTEGER,
-    allowNull: true,
+    type: DataType.STRING,
+    allowNull: false,
   })
-  banReason: string;
+  currentPosition: string;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+  })
+  profilePhoto: string | URL;
+
+  @Column({
+    type: DataType.STRING,
+    allowNull: false,
+  })
+  description: string;
 }

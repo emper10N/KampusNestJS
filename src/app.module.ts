@@ -20,6 +20,7 @@ import { Review } from './Review/review.model';
       database: process.env.POSTGRES_DB,
       models: [Review, Practice],
       autoLoadModels: true,
+      synchronize: true,
     }),
     PracticeModule,
     ReviewModule,
