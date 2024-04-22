@@ -5,7 +5,7 @@ import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { Review } from './review.model';
 
 @ApiTags('Отзывы')
-@Controller('review')
+@Controller('reviews')
 export class ReviewController {
   constructor(private reviewService: ReviewService) {}
 

@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { ConfigModule } from '@nestjs/config';
-import { PracticeModule } from './practice/practice.module';
+import { PracticeModule } from './Practice/practice.module';
 import { ReviewModule } from './review/review.module';
 import { Practice } from './Practice/practice.model';
 import { Review } from './Review/review.model';
