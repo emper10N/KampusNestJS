@@ -13,7 +13,7 @@ export interface IPractice {
 
 /*
 	IPractice
-	role: Направление стажировки/практика
+	role: Направление стажировки/практики
 	company: Компания, в которой будет проходить стажировка/практика
 	title: Именование должности стажировки/практики
 	internshipBeginning?: Строка или объект дата - дата начала стажировки (необязятельный параметр, по умолчанию undefined)
@@ -28,7 +28,6 @@ export interface IReview {
   id: number;
   name: string;
   age: number;
-  practice_id: number;
   currentPosition: string;
   profilePhoto: string | URL;
   description: string;
