@@ -5,7 +5,7 @@ import { Practice } from './practice.model';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Практики')
-@Controller('practice')
+@Controller('practices')
 export class PracticeController {
   constructor(private practiceService: PracticeService) {}
 
