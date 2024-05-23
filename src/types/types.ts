@@ -109,3 +109,9 @@ export interface ISalary {
 	count: количество
 	currency: валюта
 */
+
+export interface IComplexity {
+  id: number;
+  description: string;
+  complexity: number;
+}

@@ -15,6 +15,8 @@ import { Task } from './task/task.model';
 import { TaskModule } from './task/task.module';
 import { Salary } from './salary/salary.model';
 import { SalaryModule } from './salary/salary.module';
+import { Complexity } from './complexity/complexity.model';
+import { ComplexityModule } from './complexity/complexity.module';
 
 @Module({
   imports: [
@@ -28,7 +30,7 @@ import { SalaryModule } from './salary/salary.module';
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
-      models: [Review, Practice, User, Company, Role, Task, Salary],
+      models: [Review, Practice, User, Company, Role, Task, Salary, Complexity],
       autoLoadModels: true,
       synchronize: true,
     }),
@@ -39,6 +41,7 @@ import { SalaryModule } from './salary/salary.module';
     RoleModule,
     TaskModule,
     SalaryModule,
+    ComplexityModule,
   ],
   providers: [],
   controllers: [],
