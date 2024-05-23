@@ -5,6 +5,16 @@ import { PracticeModule } from './practice/practice.module';
 import { ReviewModule } from './review/review.module';
 import { Practice } from './practice/practice.model';
 import { Review } from './review/review.model';
+import { User } from './uers/users.model';
+import { UserModule } from './uers/users.module';
+import { Company } from './company/company.model';
+import { CompanyModule } from './company/company.module';
+import { Role } from './role/role.model';
+import { RoleModule } from './role/role.module';
+import { Task } from './task/task.model';
+import { TaskModule } from './task/task.module';
+import { Salary } from './salary/salary.model';
+import { SalaryModule } from './salary/salary.module';
 
 @Module({
   imports: [
@@ -18,12 +28,17 @@ import { Review } from './review/review.model';
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
-      models: [Review, Practice],
+      models: [Review, Practice, User, Company, Role, Task, Salary],
       autoLoadModels: true,
       synchronize: true,
     }),
     PracticeModule,
     ReviewModule,
+    UserModule,
+    CompanyModule,
+    RoleModule,
+    TaskModule,
+    SalaryModule,
   ],
   providers: [],
   controllers: [],

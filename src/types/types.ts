@@ -3,11 +3,7 @@ export interface IPractice {
   role: string;
   company: string;
   title: string;
-  //  internshipBeginning?: Date | string | undefined;
-  //internshipEnding?: Date | string | undefined;
-  //  isActive?: boolean;
   description: string;
-  //  testTask?: string | URL | undefined;
   employerHref: string | URL;
 }
 
@@ -40,4 +36,76 @@ export interface IReview {
 	currentPosition: Текущая занимаемая должность пользователя, оставившего отзыв
 	profilePhoto: Ссылка на фотографию/аватарку пользователя, оставившего отзыв
 	description: Непосредственно текст отзыва
+*/
+
+export interface ICompany {
+  id: number;
+  title: string;
+  companyHref: string | URL;
+}
+/*
+	ICompany
+	name: название Компании
+	companyHref: Ссылка на сайт компании
+*/
+
+export interface IUser {
+  id: number;
+  firstName: string;
+  lastName: string;
+  age: number;
+  profilePhoto: string | URL;
+  registerDate: Date;
+  phoneNumber: string;
+  email: string;
+}
+
+/*
+	IUser
+  id: идентификатор пользователя
+	firstName: Имя пользователя
+  lastName: фамилия
+	age: Возраст пользователя
+	profilePhoto: Ссылка на фотографию/аватарку пользователя
+  phoneNumber: Номер телефона пользователя
+  email: email пользователя
+*/
+
+export interface IRole {
+  id: number;
+  title: string;
+  description: string;
+}
+
+/*
+	IRole
+  id: идентификатор роли
+	title: Название роли
+	salary: Зарплата (изначально undefined)
+*/
+
+export interface ITask {
+  id: number;
+  condition: string;
+  complexity: number;
+}
+
+/*
+	ITask
+  id: идентификатор задачи
+	condition: Условие задачи
+	complexity: Сложность задачи
+*/
+
+export interface ISalary {
+  id: number;
+  count: number;
+  currency: string;
+}
+
+/*
+	ISalary
+  id: идентификатор зарплаты
+	count: количество
+	currency: валюта
 */
