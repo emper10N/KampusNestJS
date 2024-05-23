@@ -1,5 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Column, DataType, Model, Table } from 'sequelize-typescript';
+import { Column, DataType, HasMany, Model, Table } from 'sequelize-typescript';
+import { Review } from 'src/review/review.model';
 import { IUser } from 'src/types/types';
 
 @Table({ tableName: 'users' })
@@ -21,17 +22,17 @@ export class User extends Model<User, IUser> {
     type: DataType.STRING,
     allowNull: false,
   })
-  firstName: string;
+  name: string;
 
   @ApiProperty({
-    example: 'Олегов',
-    description: 'Фамилия пользователя',
+    example: 'qwerty123',
+    description: 'Пароль',
   })
   @Column({
     type: DataType.STRING,
     allowNull: false,
   })
-  lastName: string;
+  password: string;
 
   @ApiProperty({
     example: '20',
@@ -82,4 +83,7 @@ export class User extends Model<User, IUser> {
     allowNull: false,
   })
   email: string;
+
+  @HasMany(() => Review)
+  reviews: Review[];
 }

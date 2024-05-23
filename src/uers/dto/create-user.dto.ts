@@ -5,10 +5,10 @@ export class CreateUserDto {
   readonly id: number;
 
   @ApiProperty({ example: 'Олег', description: 'Имя пользователя' })
-  readonly firstName: string;
+  readonly name: string;
 
-  @ApiProperty({ example: 'Олегов', description: 'Фамилия пользователя' })
-  readonly lastName: string;
+  @ApiProperty({ example: 'qwerty123', description: 'Пароль' })
+  readonly password: string;
 
   @ApiProperty({ example: '20', description: 'Возраст' })
   readonly age: number;

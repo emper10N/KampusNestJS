@@ -22,10 +22,7 @@ export interface IPractice {
 
 export interface IReview {
   id: number;
-  name: string;
-  age: number;
   currentPosition: string;
-  profilePhoto: string | URL;
   description: string;
 }
 
@@ -51,8 +48,8 @@ export interface ICompany {
 
 export interface IUser {
   id: number;
-  firstName: string;
-  lastName: string;
+  name: string;
+  password: string;
   age: number;
   profilePhoto: string | URL;
   registerDate: Date;
