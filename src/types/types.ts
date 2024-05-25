@@ -22,7 +22,6 @@ export interface IPractice {
 
 export interface IReview {
   id: number;
-  currentPosition: string;
   description: string;
 }
 

@@ -13,13 +13,13 @@ export class RoleController {
   @ApiResponse({ status: 200, type: Role })
   @Post()
   create(@Body() roleDto: CreateRoleDto) {
-    return this.roleService.createUser(roleDto);
+    return this.roleService.createRole(roleDto);
   }
 
   @ApiOperation({ summary: 'Получение всех ролей' })
   @ApiResponse({ status: 200, type: [Role] })
   @Get()
   getAll() {
-    return this.roleService.getAllUsers();
+    return this.roleService.getAllRoles();
   }
 }

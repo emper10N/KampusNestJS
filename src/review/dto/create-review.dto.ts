@@ -5,12 +5,6 @@ export class CreateReviewDto {
   readonly id: number;
 
   @ApiProperty({
-    example: 'Ген. Директор',
-    description: 'Должность пользователся на стажировке',
-  })
-  readonly currentPosition: string;
-
-  @ApiProperty({
     example: 'Интересное предложение, но....',
     description: 'Текст отзыва',
   })

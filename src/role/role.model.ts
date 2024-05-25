@@ -1,5 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Column, DataType, Model, Table } from 'sequelize-typescript';
+import { Column, DataType, HasMany, Model, Table } from 'sequelize-typescript';
+import { Review } from 'src/review/review.model';
 import { IRole } from 'src/types/types';
 
 @Table({ tableName: 'roles' })
@@ -32,4 +33,7 @@ export class Role extends Model<Role, IRole> {
     allowNull: false,
   })
   description: string;
+
+  @HasMany(() => Review)
+  reviews: Review[];
 }

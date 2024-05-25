@@ -6,6 +6,7 @@ import {
   Model,
   Table,
 } from 'sequelize-typescript';
+import { Role } from 'src/role/role.model';
 import { IReview } from 'src/types/types';
 import { User } from 'src/uers/users.model';
 
@@ -23,15 +24,8 @@ export class Review extends Model<Review, IReview> {
   @ForeignKey(() => User)
   userId: number;
 
-  @ApiProperty({
-    example: 'Ген. Директор',
-    description: 'Должность пользователся на стажировке',
-  })
-  @Column({
-    type: DataType.STRING,
-    allowNull: false,
-  })
-  currentPosition: string;
+  @ForeignKey(() => Role)
+  roleId: number;
 
   @ApiProperty({
     example: 'Интересное предложение',

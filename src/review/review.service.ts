@@ -4,6 +4,7 @@ import { InjectModel } from '@nestjs/sequelize';
 import { CreateReviewDto } from './dto/create-review.dto';
 import { User } from 'src/uers/users.model';
 import { Repository } from 'sequelize-typescript';
+import { Role } from 'src/role/role.model';
 
 export interface GetReviews {
   id: number;
@@ -20,6 +21,7 @@ export class ReviewService {
   constructor(
     @InjectModel(Review) private reviewRepository: Repository<Review>,
     @InjectModel(User) private userRepository: Repository<User>,
+    @InjectModel(Role) private roleRepository: Repository<Role>,
   ) {}
 
   async createReview(dto: CreateReviewDto): Promise<Review> {
@@ -31,12 +33,13 @@ export class ReviewService {
 
     const getReviewPromises = reviews.map(async (review) => {
       const user = await this.userRepository.findByPk(review.userId);
+      const role = await this.roleRepository.findByPk(review.roleId);
 
       return {
         id: review.id,
         name: user.name,
         age: user.age,
-        currentPosition: review.currentPosition,
+        currentPosition: role.title,
         profilePhoto: user.profilePhoto,
         description: review.description,
       };
