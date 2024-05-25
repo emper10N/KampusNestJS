@@ -1,5 +1,13 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Column, DataType, Model, Table } from 'sequelize-typescript';
+import {
+  Column,
+  DataType,
+  ForeignKey,
+  Model,
+  Table,
+} from 'sequelize-typescript';
+import { Company } from 'src/company/company.model';
+import { Role } from 'src/role/role.model';
 import { IPractice } from 'src/types/types';
 
 @Table({ tableName: 'practice' })
@@ -23,25 +31,11 @@ export class Practice extends Model<Practice, IPractice> {
   })
   role: string;
 
-  @ApiProperty({
-    example: 'Google',
-    description: ' Компания, в которой будет проходить стажировка/практика',
-  })
-  @Column({
-    type: DataType.STRING,
-    allowNull: false,
-  })
-  company: string;
+  @ForeignKey(() => Company)
+  companyId: number;
 
-  @ApiProperty({
-    example: 'Juniour-разработчик',
-    description: 'Именование должности стажировки/практики',
-  })
-  @Column({
-    type: DataType.STRING,
-    allowNull: false,
-  })
-  title: string;
+  @ForeignKey(() => Role)
+  roleId: number;
 
   @ApiProperty({
     example: '10.06.2022',
@@ -94,14 +88,4 @@ export class Practice extends Model<Practice, IPractice> {
     allowNull: true,
   })
   testTask?: string | URL | undefined;
-
-  @ApiProperty({
-    example: 'https://google.com',
-    description: 'Ссылка на сайт работодателя',
-  })
-  @Column({
-    type: DataType.STRING,
-    allowNull: false,
-  })
-  employerHref: string;
 }

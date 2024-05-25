@@ -1,5 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Column, DataType, Model, Table } from 'sequelize-typescript';
+import { Column, DataType, HasMany, Model, Table } from 'sequelize-typescript';
+import { Practice } from 'src/practice/practice.model';
 import { ICompany } from 'src/types/types';
 
 @Table({ tableName: 'companies' })
@@ -32,4 +33,7 @@ export class Company extends Model<Company, ICompany> {
     allowNull: false,
   })
   companyHref: string | URL;
+
+  @HasMany(() => Practice)
+  practices: Practice[];
 }

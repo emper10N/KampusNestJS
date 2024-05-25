@@ -1,5 +1,12 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Column, DataType, Model, Table } from 'sequelize-typescript';
+import {
+  Column,
+  DataType,
+  ForeignKey,
+  Model,
+  Table,
+} from 'sequelize-typescript';
+import { Role } from 'src/role/role.model';
 import { ITask } from 'src/types/types';
 
 @Table({ tableName: 'tasks' })
@@ -12,6 +19,9 @@ export class Task extends Model<Task, ITask> {
     unique: true,
   })
   id: number;
+
+  @ForeignKey(() => Role)
+  roleId: number;
 
   @ApiProperty({
     example: 'Вычесть ве чётные числа из множества....',

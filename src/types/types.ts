@@ -1,10 +1,10 @@
 export interface IPractice {
   id: number;
   role: string;
-  company: string;
-  title: string;
+  //company: string;
+  //title: string;
   description: string;
-  employerHref: string | URL;
+  //employerHref: string | URL;
 }
 
 /*
