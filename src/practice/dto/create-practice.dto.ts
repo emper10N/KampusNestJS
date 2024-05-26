@@ -11,26 +11,20 @@ export class CreatePracticeDto {
   readonly role: string;
 
   @ApiProperty({
-    example: 'Google',
-    description: ' Компания, в которой будет проходить стажировка/практика',
+    example: '380876',
+    description: 'Id компании, в которой будет проходить стажировка/практика',
   })
-  readonly company: string;
+  readonly companyId: string;
 
   @ApiProperty({
-    example: 'Juniour-разработчик',
-    description: 'Именование должности стажировки/практики',
+    example: '123213',
+    description: 'Id должности стажировки/практики',
   })
-  readonly title: string;
+  readonly roleId: string;
 
   @ApiProperty({
     example: 'Стаж работы: ....',
     description: 'Описание, прилагаемое к вакансии или условиям отбора',
   })
   readonly description: string;
-
-  @ApiProperty({
-    example: 'https://google.com',
-    description: 'Ссылка на сайт работодателя',
-  })
-  readonly employerHref: string | URL;
 }

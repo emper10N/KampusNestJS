@@ -77,15 +77,4 @@ export class Practice extends Model<Practice, IPractice> {
     allowNull: false,
   })
   description: string;
-
-  @ApiProperty({
-    example: 'Написать свой пэт-проект на github',
-    description:
-      'тестовое задание (необязятельный параметр, по умолчанию undefined)',
-  })
-  @Column({
-    type: DataType.STRING,
-    allowNull: true,
-  })
-  testTask?: string | URL | undefined;
 }
