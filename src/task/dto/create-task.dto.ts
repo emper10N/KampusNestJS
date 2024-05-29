@@ -5,6 +5,12 @@ export class CreateTaskDto {
   readonly id: number;
 
   @ApiProperty({
+    example: '2432',
+    description: 'Уникальный идентификатор роли, к которой относится задача',
+  })
+  readonly roleId: number;
+
+  @ApiProperty({
     example: 'Вычесть ве чётные числа из множества....',
     description: 'Условие задачи',
   })

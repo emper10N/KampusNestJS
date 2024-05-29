@@ -31,9 +31,17 @@ export class Practice extends Model<Practice, IPractice> {
   })
   role: string;
 
+  @ApiProperty({
+    example: '534754',
+    description: 'Уникальный идентификатор компании',
+  })
   @ForeignKey(() => Company)
   companyId: number;
 
+  @ApiProperty({
+    example: '85785',
+    description: 'Уникальный идентификатор роли для стажировки/практики',
+  })
   @ForeignKey(() => Role)
   roleId: number;
 

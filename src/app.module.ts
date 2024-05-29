@@ -25,7 +25,10 @@ import { ComplexityModule } from './complexity/complexity.module';
     }),
     SequelizeModule.forRoot({
       dialect: 'postgres',
-      host: process.env.POSTGRES_HOST,
+      host: (() => {
+        console.log(process.env.POSTGRES_HOST);
+        return process.env.POSTGRES_HOST;
+      })(),
       port: Number(process.env.POSTGRES_PORT),
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,

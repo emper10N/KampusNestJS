@@ -20,6 +20,10 @@ export class Task extends Model<Task, ITask> {
   })
   id: number;
 
+  @ApiProperty({
+    example: '102432',
+    description: 'Уникальный идентификатор роли, к которой относится задача',
+  })
   @ForeignKey(() => Role)
   roleId: number;
 

@@ -9,14 +9,14 @@ import { CreateComplexityDto } from './dto/create-complexity .dto';
 export class ComplexityController {
   constructor(public complexityService: ComplexityService) {}
 
-  @ApiOperation({ summary: 'Создание задачи' })
+  @ApiOperation({ summary: 'Создание сложности' })
   @ApiResponse({ status: 200, type: Complexity })
   @Post()
   create(@Body() complexityDto: CreateComplexityDto) {
     return this.complexityService.createUser(complexityDto);
   }
 
-  @ApiOperation({ summary: 'Получение всех задач' })
+  @ApiOperation({ summary: 'Получение всех видов сложностей' })
   @ApiResponse({ status: 200, type: [Complexity] })
   @Get()
   getAll() {

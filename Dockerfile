@@ -1,5 +1,5 @@
 FROM node:20.10.0-alpine
-
+EXPOSE 3000
 WORKDIR /app
 
 COPY package*.json /.

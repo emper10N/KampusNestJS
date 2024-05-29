@@ -55,6 +55,16 @@ export class User extends Model<User, IUser> {
   profilePhoto: string | URL;
 
   @ApiProperty({
+    example: 'Ген. Директор',
+    description: 'Должность пользователся',
+  })
+  @Column({
+    type: DataType.STRING,
+    allowNull: true,
+  })
+  readonly currentPosition: string;
+
+  @ApiProperty({
     example: '01.10.2024',
     description: 'Дата регистрации',
   })

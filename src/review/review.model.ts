@@ -21,9 +21,14 @@ export class Review extends Model<Review, IReview> {
   })
   id: number;
 
+  @ApiProperty({
+    example: '1043532',
+    description: 'Уникальный идентификатор пользователя, оставившего отзыв',
+  })
   @ForeignKey(() => User)
   userId: number;
 
+  @ApiProperty({ example: '32', description: 'Уникальный идентификатор роли' })
   @ForeignKey(() => Role)
   roleId: number;
 
