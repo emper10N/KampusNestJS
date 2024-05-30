@@ -1,9 +1,8 @@
 services:
   main:
-    image: empr10n/campus
+    image: empr10n/compus
     container_name: main
-    build:
-      context: .
+    build: .
     env_file:
       - .production.env
     volumes:
